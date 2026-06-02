@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* VITALIS — Design system clean, paleta inspirada na logo (azul claro + roxo profundo) */
+
+@layer base {
+  :root {
+    --background: 210 40% 99%;
+    --foreground: 250 30% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 250 30% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 250 30% 12%;
+
+    /* Roxo profundo da logo */
+    --primary: 258 60% 32%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Azul claro da logo */
+    --accent: 205 85% 65%;
+    --accent-foreground: 250 30% 12%;
+
+    --secondary: 220 30% 96%;
+    --secondary-foreground: 250 30% 18%;
+
+    --muted: 220 25% 96%;
+    --muted-foreground: 240 10% 45%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 230 25% 92%;
+    --input: 230 25% 92%;
+    --ring: 258 60% 32%;
+
+    --radius: 1rem;
+
+    /* Brand tokens */
+    --brand-blue: 205 85% 65%;
+    --brand-purple: 258 60% 32%;
+    --brand-blend: 235 55% 50%;
+
+    --gradient-brand: linear-gradient(135deg, hsl(var(--brand-blue)), hsl(var(--brand-purple)));
+    --gradient-soft: linear-gradient(180deg, hsl(210 40% 99%), hsl(220 40% 97%));
+    --shadow-soft: 0 4px 24px -8px hsl(var(--brand-purple) / 0.12);
+    --shadow-card: 0 2px 12px -4px hsl(240 30% 30% / 0.06);
+    --shadow-hover: 0 12px 40px -12px hsl(var(--brand-purple) / 0.22);
+
+    --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 250 30% 8%;
+    --foreground: 210 40% 98%;
+    --card: 250 25% 11%;
+    --card-foreground: 210 40% 98%;
+    --popover: 250 25% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 205 85% 65%;
+    --primary-foreground: 250 30% 12%;
+    --secondary: 250 20% 16%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 250 20% 16%;
+    --muted-foreground: 220 15% 65%;
+    --accent: 258 60% 45%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 40%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 250 20% 18%;
+    --input: 250 20% 18%;
+    --ring: 205 85% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1, h2, h3, h4 {
+    @apply tracking-tight;
+  }
+}
+
+@layer utilities {
+  .gradient-brand {
+    background: var(--gradient-brand);
+  }
+  .text-gradient-brand {
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-card { box-shadow: var(--shadow-card); }
+  .shadow-hover { box-shadow: var(--shadow-hover); }
+  .transition-smooth { transition: var(--transition-smooth); }
+}
