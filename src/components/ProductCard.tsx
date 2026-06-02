@@ -7,6 +7,8 @@ interface Props {
   product: Product;
 }
 
+import { resolveImageUrl } from "@/lib/utils";
+
 export const ProductCard = ({ product }: Props) => {
   const [open, setOpen] = useState(false);
 
@@ -31,7 +33,7 @@ export const ProductCard = ({ product }: Props) => {
         <div className="aspect-[4/3] bg-gradient-to-br from-secondary to-muted relative overflow-hidden">
           {product.image_url ? (
             <img
-              src={product.image_url}
+              src={resolveImageUrl(product.image_url)}
               alt={product.name}
               loading="lazy"
               className="w-full h-full object-contain transition-smooth group-hover:scale-105"

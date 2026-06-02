@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { supabase } from "@/integrations/supabase/client";
 import { CATEGORY_LABELS, Product, formatBRL } from "@/lib/products";
+import { cn, resolveImageUrl } from "@/lib/utils";
 import { toast } from "sonner";
 import { Pencil, Plus, Trash2, Lock, LogOut, Star } from "lucide-react";
 import { ProductFormDialog } from "@/components/admin/ProductFormDialog";
@@ -145,7 +146,7 @@ const Admin = () => {
                   <td className="p-4">
                     <div className="flex items-center gap-3">
                       {p.image_url ? (
-                        <img src={p.image_url} alt="" className="w-10 h-10 rounded-lg object-cover" />
+                        <img src={resolveImageUrl(p.image_url)} alt="" className="w-10 h-10 rounded-lg object-cover" />
                       ) : (
                         <div className="w-10 h-10 rounded-lg gradient-brand opacity-30" />
                       )}

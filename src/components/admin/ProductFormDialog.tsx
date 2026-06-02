@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Product, ProductCategory, CATEGORY_LABELS } from "@/lib/products";
+import { resolveImageUrl } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -211,7 +212,7 @@ export const ProductFormDialog = ({ open, onOpenChange, product, onSaved }: Prop
             <Label>Foto do produto</Label>
             <div className="flex items-center gap-4">
               {form.image_url ? (
-                <img src={form.image_url} alt="preview" className="w-20 h-20 rounded-xl object-cover border" />
+                <img src={resolveImageUrl(form.image_url)} alt="preview" className="w-20 h-20 rounded-xl object-cover border" />
               ) : (
                 <div className="w-20 h-20 rounded-xl bg-muted flex items-center justify-center text-xs text-muted-foreground">
                   Sem foto
